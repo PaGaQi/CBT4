@@ -124,8 +124,8 @@ void ScenePanel::Draw()
     
     //Wiwa::Application::Get().GetRenderer3D().SetActiveCamera(m_Camera);
 
-    ImTextureID tex = (ImTextureID)(intptr_t)m_Camera->frameBuffer->getColorBufferTexture();
-    //ImTextureID tex = (ImTextureID)(intptr_t)Wiwa::Application::Get().GetRenderer2D().getColorBufferTexture();
+    //ImTextureID tex = (ImTextureID)(intptr_t)m_Camera->frameBuffer->getColorBufferTexture();
+    ImTextureID tex = (ImTextureID)(intptr_t)Wiwa::Application::Get().GetRenderer2D().getColorBufferTexture();
 
     ImGui::SetCursorPos(cpos);
     //Wiwa::Application::Get().GetRenderer3D().RenderGrid();
