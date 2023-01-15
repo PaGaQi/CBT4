@@ -6,8 +6,7 @@
 
 namespace Wiwa {
 	Button::Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId)
-		: m_BType(btype), m_SpriteID(spriteId), m_Bounds(bounds), m_Position(position), m_Type(UiType::BUTTON),
-		m_State(UiState::NORMAL)
+		: m_BType(btype), m_SpriteID(spriteId), m_Bounds(bounds), ControlUi(position, bounds)
 	{
 		m_Renderer2D = &Application::Get().GetRenderer2D();
 

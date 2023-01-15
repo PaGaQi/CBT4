@@ -29,7 +29,6 @@ namespace Wiwa
 	{
 		bool ret = true;
 		
-		//NEED TO FIX STATE
 		if (state != UiState::DISABLED)
 		{
 			ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
@@ -66,6 +65,7 @@ namespace Wiwa
 				if (Wiwa::Input::IsMouseButtonPressed(0))
 				{
 					state = UiState::PRESS;
+					std::cout << "AAAAAAAAAAAA MI CULO AAAAAAAA" << std::endl;
 				}
 			}
 			else

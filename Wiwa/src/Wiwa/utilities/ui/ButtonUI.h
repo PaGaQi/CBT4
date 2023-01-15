@@ -2,38 +2,40 @@
 #include <Wiwa/utilities/math/Vector2i.h>
 #include <Wiwa/utilities/math/Rectangle.h>
 #include <Wiwa/core/Resources.h>
+#include <Wiwa/utilities/ui/ControlUI.h>
 
 namespace Wiwa {
 	class Renderer2D;
 
-	enum class UiType {
-		BUTTON,
-		NONE
-	};
+	//enum class UiType {
+	//	BUTTON,
+	//	NONE
+	//};
 
-	enum class UiState {
-		DISABLED,
-		NORMAL,
-		FOCUS,
-		PRESS,
-		NONE
-	};
+	//enum class UiState {
+	//	DISABLED,
+	//	NORMAL,
+	//	FOCUS,
+	//	PRESS,
+	//	NONE
+	//};
 
 	enum class ButtonType {
 		PLAY,
 		NONE
 	};
 
-	class WI_API Button {
+	class WI_API Button : public ControlUi 
+	{
 	private:
-		Renderer2D* m_Renderer2D;
+		//Renderer2D* m_Renderer2D;
 
 		ResourceId m_SpriteID;
 		Rect2i m_Bounds;
-		UiType m_Type;
-		Vector2i m_Position;
+		//UiType m_Type;
+		//Vector2i m_Position;
 
-		UiState m_State;
+		//UiState m_State;
 
 		ButtonType m_BType;
 

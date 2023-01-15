@@ -34,6 +34,7 @@ public:
 		//r2d.CreateInstancedQuadTex(imgId, pos, size);
 		
 		Wiwa::ManagerUi::Get()->CreateControlUi(Wiwa::UiType::BUTTON, Wiwa::ButtonType::PLAY, pos, imgId, rect);
+
 	}
 
 	~WiwaApp()
