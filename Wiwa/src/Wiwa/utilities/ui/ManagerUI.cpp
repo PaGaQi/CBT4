@@ -4,12 +4,12 @@
 #include "Wiwa/core/Application.h"
 #include <Wiwa/core/Resources.h>
 
-
-
 #include "CheckUI.h"
 
 namespace Wiwa
 {
+	ManagerUi* ManagerUi::instance = NULL;
+
 	ManagerUi::ManagerUi()
 	{
 	}

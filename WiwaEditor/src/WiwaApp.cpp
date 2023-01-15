@@ -8,6 +8,9 @@
 #include <Wiwa/audio/Audio.h>
 #include <Wiwa/core/Renderer2D.h>
 
+//#include <Wiwa/utilities/ui/ButtonUI.h>
+#include <Wiwa/utilities/ui/ManagerUI.h>
+
 USE_REFLECTION;
 class WiwaApp : public Wiwa::Application
 {
@@ -24,14 +27,17 @@ public:
 		Wiwa::Image* img = Wiwa::Resources::GetResourceById<Wiwa::Image>(imgId);
 		Wiwa::Vector2i pos = { 0,0 };
 		Wiwa::Size2i size = img->GetSize();
+		Wiwa::Rect2i rect = {0, 0, size.w, size.h};
 
-		Wiwa::Renderer2D& r2d = Wiwa::Application::Get().GetRenderer2D();
-		r2d.CreateInstancedQuadTex(imgId, pos, size);
+
+		//Wiwa::Renderer2D& r2d = Wiwa::Application::Get().GetRenderer2D();
+		//r2d.CreateInstancedQuadTex(imgId, pos, size);
+		
+		Wiwa::ManagerUi::Get()->CreateControlUi(Wiwa::UiType::BUTTON, Wiwa::ButtonType::PLAY, pos, imgId, rect);
 	}
 
 	~WiwaApp()
 	{
-
 	}
 };
 

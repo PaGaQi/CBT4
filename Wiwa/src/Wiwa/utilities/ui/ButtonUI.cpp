@@ -5,7 +5,7 @@
 #include <Wiwa/core/Application.h>
 
 namespace Wiwa {
-	Wiwa::Button::Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId)
+	Button::Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId)
 		: m_BType(btype), m_SpriteID(spriteId), m_Bounds(bounds), m_Position(position), m_Type(UiType::BUTTON),
 		m_State(UiState::NORMAL)
 	{
@@ -21,8 +21,6 @@ namespace Wiwa {
 	{
 		// Check state
 		m_Bounds.y = (int)m_State * m_Bounds.height;
-
-		//m_Renderer2D->UpdateInstancedQuadTex(m_InstanceId, position, )
 	}
 
 	void Button::OnClick()

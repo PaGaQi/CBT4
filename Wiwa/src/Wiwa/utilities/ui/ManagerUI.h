@@ -5,12 +5,23 @@
 
 namespace Wiwa
 {
-	class ManagerUi
+	class WI_API ManagerUi
 	{
-	public:
-
+	private:
 		// Constructor
 		ManagerUi();
+
+		static ManagerUi* instance;
+	public:
+		static ManagerUi* Get() 
+		{ 
+			if (instance == NULL)
+			{
+				instance = new ManagerUi();
+			}
+
+			return instance;
+		}
 
 		// Destructor
 		virtual ~ManagerUi();
