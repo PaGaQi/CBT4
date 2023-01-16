@@ -11,6 +11,7 @@ namespace Wiwa {
 	enum class SceneUi {
 		MAIN,
 		PLAYING,
+		CROSSHAIR,
 		OPTIONS,
 		NONE
 	};

@@ -29,7 +29,7 @@ namespace Wiwa {
 		if (Input::GetMousePosition().first > m_Bounds.x && Input::GetMousePosition().first < m_Bounds.width
 			&& Input::GetMousePosition().second > m_Bounds.y- m_Bounds.height && Input::GetMousePosition().second < m_Bounds.height)
 		{
-			if (Wiwa::Input::IsMouseButtonPressed(0))
+			if (Wiwa::Input::IsMouseButtonPressed(0) && currentScene == SceneUi::MAIN)
 				{
 					//state = UiState::PRESS;
 					OnClick();
@@ -54,6 +54,8 @@ namespace Wiwa {
 		case ButtonType::PLAY:
 			std::cout << "Iso click webon \n";
 			currentScene = SceneUi::PLAYING;
+			//currentScene = SceneUi::CROSSHAIR;
+
 			
 			break;
 		}
