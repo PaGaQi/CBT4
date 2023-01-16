@@ -30,8 +30,11 @@ namespace Wiwa
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
-		xpos -= offset.first;
-		ypos -= offset.second;
+		if(s_InWin)
+		{
+			xpos -= offset.first;
+			ypos -= offset.second;
+		}
 		return {(float)xpos, (float)ypos};
 	}
 	float WindowsInput::GetMouseXImpl()

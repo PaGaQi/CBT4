@@ -6,6 +6,7 @@
 
 namespace Wiwa {
 	class Renderer2D;
+	class Pivot;
 
 	//enum class UiType {
 	//	BUTTON,
@@ -42,6 +43,7 @@ namespace Wiwa {
 		uint32_t m_InstanceId;
 	public:
 		Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId);
+		//Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId, Pivot pivot);
 
 		void Update();
 

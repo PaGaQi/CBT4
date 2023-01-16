@@ -303,6 +303,7 @@ void ScenePanel::Draw()
         Wiwa::Input::OverrideMousePos({ v2f.x, v2f.y});
 
         Wiwa::Input::OverrideMouseinWin(true);
+         
 
         lastPos = v2f;
         if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F) && m_EntSelected != -1)
@@ -453,6 +454,8 @@ void ScenePanel::Draw()
         }
     }
     m_Scroll = 0.0f;
+    WI_INFO("INWINDOW {}", Wiwa::Input::IsMouseInWin());
+    WI_INFO("INWINDOW {0} {1}", Wiwa::Input::GetMousePosition().first, Wiwa::Input::GetMousePosition().second);
     ImGui::End();
 }
 

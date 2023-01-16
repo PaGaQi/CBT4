@@ -30,9 +30,9 @@ public:
 		Wiwa::Size2i size2 = {1920*2, 1080*2};
 		Wiwa::Rect2i rect2 = { 0, 0, size2.w, size2.h};
 
-		ResourceId imgId = Wiwa::Resources::Load<Wiwa::Image>("Assets/sexo.png");
+		ResourceId imgId = Wiwa::Resources::Load<Wiwa::Image>("Assets/Play.png");
 		Wiwa::Image* img = Wiwa::Resources::GetResourceById<Wiwa::Image>(imgId);
-		Wiwa::Vector2i pos = { 0,0 };
+		Wiwa::Vector2i pos = { 960, 540};
 		Wiwa::Size2i size = img->GetSize();
 		Wiwa::Rect2i rect = {0, 0, size.w, size.h};
 		

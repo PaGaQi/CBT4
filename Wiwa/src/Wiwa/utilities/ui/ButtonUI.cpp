@@ -19,10 +19,11 @@ namespace Wiwa {
 
 	void Button::Update()
 	{
-		std::cout << Input::GetMousePosition().second << "\n";
+		//std::cout << Input::GetMousePosition().second << "\n";
 		//std::cout << "Webo" << std::endl;
-		if (Input::GetMousePosition().first > m_Bounds.x && Input::GetMousePosition().first < m_Bounds.x + m_Bounds.width
-			&& Input::GetMousePosition().second > m_Bounds.y && Input::GetMousePosition().second < m_Bounds.y + m_Bounds.height)
+		//std::cout << m_Bounds.y - m_Bounds.height << std::endl;
+		if (Input::GetMousePosition().first > m_Bounds.x && Input::GetMousePosition().first < m_Bounds.width
+			&& Input::GetMousePosition().second > m_Bounds.y- m_Bounds.height && Input::GetMousePosition().second < m_Bounds.height)
 		{
 			if (Wiwa::Input::IsMouseButtonPressed(0))
 				{
@@ -30,6 +31,17 @@ namespace Wiwa {
 					OnClick();
 				}
 		}
+		//if (Input::GetMousePosition().first > 0 && Input::GetMousePosition().first < 620
+		//	&& Input::GetMousePosition().second >0 && Input::GetMousePosition().second < 620)
+		//{
+		//	if (Wiwa::Input::IsMouseButtonPressed(0))
+		//	{
+		//		//state = UiState::PRESS;
+		//		OnClick();
+		//		std::cout << "pito";
+		//	}
+		//	
+		//}
 	}
 
 	void Button::OnClick()
