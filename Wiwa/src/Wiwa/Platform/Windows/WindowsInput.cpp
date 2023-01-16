@@ -9,6 +9,8 @@
 namespace Wiwa
 {
 	Input* Input::s_Instance = new WindowsInput();
+	bool Input::s_InWin = false;
+
 	std::pair<float, float> Input::offset = {0.0f,0.0f};
 
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
@@ -50,5 +52,14 @@ namespace Wiwa
 		x -= xoff;
 		y -= yoff;
 		return{x, y};
+	}
+
+	void WindowsInput::OverrideMouseInWinImpl(bool inWindow)
+	{
+		s_InWin = inWindow;
+	}
+	bool WindowsInput::IsMouseInWinImpl()
+	{
+		return s_InWin;
 	}
 }

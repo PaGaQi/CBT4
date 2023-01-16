@@ -13,5 +13,8 @@ namespace Wiwa
 		virtual float GetMouseXImpl() override;
 		virtual float GetMouseYImpl() override;
 		virtual std::pair<float, float> OverrideMousePosImpl(std::pair<float, float> offset) override;
+
+		virtual void OverrideMouseInWinImpl(bool inWindow) override;
+		virtual bool IsMouseInWinImpl() override;
 	};
 }

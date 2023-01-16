@@ -282,7 +282,7 @@ void ScenePanel::Draw()
         }
     }
     
-    
+    Wiwa::Input::OverrideMouseinWin(false);
 
     if (ImGui::IsWindowHovered())
     {
@@ -301,6 +301,8 @@ void ScenePanel::Draw()
         rel2f.y /= rel2f.y == 0.0f ? 1.0f : abs(rel2f.y);
 
         Wiwa::Input::OverrideMousePos({ v2f.x, v2f.y});
+
+        Wiwa::Input::OverrideMouseinWin(true);
 
         lastPos = v2f;
         if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F) && m_EntSelected != -1)
