@@ -21,6 +21,7 @@ namespace Wiwa
 		virtual float GetMouseXImpl() = 0;
 		virtual float GetMouseYImpl() = 0;
 		virtual std::pair<float, float> OverrideMousePosImpl(std::pair<float,float> offset) = 0;
+		static std::pair<float, float> offset;
 	private:
 		static Input* s_Instance;
 	};

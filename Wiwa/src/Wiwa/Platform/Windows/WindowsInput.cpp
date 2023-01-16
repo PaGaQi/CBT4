@@ -9,6 +9,7 @@
 namespace Wiwa
 {
 	Input* Input::s_Instance = new WindowsInput();
+	std::pair<float, float> Input::offset = {0.0f,0.0f};
 
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{
@@ -27,7 +28,8 @@ namespace Wiwa
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
-
+		xpos -= offset.first;
+		ypos -= offset.second;
 		return {(float)xpos, (float)ypos};
 	}
 	float WindowsInput::GetMouseXImpl()
@@ -40,9 +42,10 @@ namespace Wiwa
 		auto [x, y] = GetMousePosition();
 		return y;
 	}
-	std::pair<float, float> WindowsInput::OverrideMousePosImpl(std::pair<float, float> offset)
+	std::pair<float, float> WindowsInput::OverrideMousePosImpl(std::pair<float, float> pito)
 	{
 		auto [x, y] = GetMousePosition();
+		offset = pito;
 		auto [xoff, yoff] = offset;
 		x -= xoff;
 		y -= yoff;

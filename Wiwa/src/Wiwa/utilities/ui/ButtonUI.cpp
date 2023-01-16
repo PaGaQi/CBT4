@@ -20,14 +20,13 @@ namespace Wiwa {
 	void Button::Update()
 	{
 		//std::cout << "Webo" << std::endl;
-		/*if ((rpos.x > m_Bounds.x) && (rpos.x < (m_Bounds.x + m_Bounds.width)) &&
-			(rpos.y > m_Bounds.y) && (rpos.y < (m_Bounds.y + m_Bounds.height)))
-		{*/
-		if (Wiwa::Input::IsMouseButtonPressed(0))
-			{
-				//state = UiState::PRESS;
-				OnClick();
-			}
+		//if ()
+		//{
+		//	if (Wiwa::Input::IsMouseButtonPressed(0))
+		//		{
+		//			//state = UiState::PRESS;
+		//			OnClick();
+		//		}
 		//}
 	}
 
