@@ -289,6 +289,9 @@ void ScenePanel::Draw()
         // Calculate mouse position in viewport (0 to 1)
         ImVec2 mpos = ImGui::GetMousePos();
         ImVec2 cspos = ImGui::GetCursorScreenPos();
+        ImVec2 offset = ImGui::GetItemRectMin();
+        offset.x -= isize.x / 2;
+        offset.y -= isize.y / 2;
 
         ImVec2 rpos = { mpos.x - rectPos.x, mpos.y - rectPos.y };
         CLAMP(rpos.x, 0.0f, isize.x);
@@ -300,8 +303,17 @@ void ScenePanel::Draw()
         rel2f.x /= rel2f.x == 0.0f ? 1.0f : abs(rel2f.x);
         rel2f.y /= rel2f.y == 0.0f ? 1.0f : abs(rel2f.y);
 
-        Wiwa::Input::OverrideMousePos({ v2f.x, v2f.y});
+       
+        ImVec2 vMin = ImGui::GetWindowContentRegionMin();             
+        ImVec2 vMax = ImGui::GetWindowContentRegionMax();             
+        vMin.x += ImGui::GetWindowPos().x;             
+        vMin.y += ImGui::GetWindowPos().y;             
+        vMax.x += ImGui::GetWindowPos().x;             
+        vMax.y += ImGui::GetWindowPos().y;             
+        ImGui::GetForegroundDrawList()->AddRect(vMin, vMax, IM_COL32(255, 0, 0, 255));
 
+        std::pair<float, float> of = Wiwa::Input::OverrideMousePos({ vMin.x, vMin.y });
+        WI_INFO("Offset {0} {1}", of.first, of.second);
         Wiwa::Input::OverrideMouseinWin(true);
          
 

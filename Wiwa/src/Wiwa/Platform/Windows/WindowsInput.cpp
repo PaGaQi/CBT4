@@ -54,7 +54,7 @@ namespace Wiwa
 		auto [xoff, yoff] = offset;
 		x -= xoff;
 		y -= yoff;
-		return{x, y};
+		return offset;
 	}
 
 	void WindowsInput::OverrideMouseInWinImpl(bool inWindow)
