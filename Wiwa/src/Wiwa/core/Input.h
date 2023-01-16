@@ -12,6 +12,7 @@ namespace Wiwa
 		inline static std::pair<float, float> GetMousePosition() { return s_Instance->GetMousePositionImpl(); }
 		inline static float GetMouseX() { return s_Instance->GetMouseXImpl(); }
 		inline static float GetMouseY() { return s_Instance->GetMouseYImpl(); }
+		inline static std::pair<float, float> OverrideMousePos(std::pair<float, float> offset) { return s_Instance->OverrideMousePosImpl(offset); }
 
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) = 0;
@@ -19,6 +20,7 @@ namespace Wiwa
 		virtual std::pair<float, float> GetMousePositionImpl() = 0;
 		virtual float GetMouseXImpl() = 0;
 		virtual float GetMouseYImpl() = 0;
+		virtual std::pair<float, float> OverrideMousePosImpl(std::pair<float,float> offset) = 0;
 	private:
 		static Input* s_Instance;
 	};

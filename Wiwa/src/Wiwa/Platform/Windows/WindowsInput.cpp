@@ -40,4 +40,12 @@ namespace Wiwa
 		auto [x, y] = GetMousePosition();
 		return y;
 	}
+	std::pair<float, float> WindowsInput::OverrideMousePosImpl(std::pair<float, float> offset)
+	{
+		auto [x, y] = GetMousePosition();
+		auto [xoff, yoff] = offset;
+		x -= xoff;
+		y -= yoff;
+		return{x, y};
+	}
 }
