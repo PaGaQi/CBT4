@@ -8,18 +8,12 @@ namespace Wiwa {
 	class Renderer2D;
 	class Pivot;
 
-	//enum class UiType {
-	//	BUTTON,
-	//	NONE
-	//};
-
-	//enum class UiState {
-	//	DISABLED,
-	//	NORMAL,
-	//	FOCUS,
-	//	PRESS,
-	//	NONE
-	//};
+	enum class SceneUi {
+		MAIN,
+		PLAYING,
+		OPTIONS,
+		NONE
+	};
 
 	enum class ButtonType {
 		PLAY,
@@ -48,5 +42,7 @@ namespace Wiwa {
 		void Update();
 
 		void OnClick();
+
+		static SceneUi currentScene;
 	};
 }

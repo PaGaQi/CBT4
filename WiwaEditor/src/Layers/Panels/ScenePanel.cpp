@@ -29,6 +29,7 @@
 #include "../../Entities.h"
 
 #include <Wiwa/core/Renderer2D.h>
+#include <Wiwa/utilities/ui/ButtonUi.h>
 
 #include <Wiwa/utilities/filesystem/FileSystem.h>
 
@@ -126,9 +127,15 @@ void ScenePanel::Draw()
     
     ImTextureID tex = (ImTextureID)(intptr_t)Wiwa::Application::Get().GetRenderer2D().getColorBufferTexture();
 
-    if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F4))
+    if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F4) || Wiwa::Button::currentScene == Wiwa::SceneUi::PLAYING)
     {
         tex = (ImTextureID)(intptr_t)m_Camera->frameBuffer->getColorBufferTexture();
+
+        if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F5)) Wiwa::Button::currentScene = Wiwa::SceneUi::MAIN;
+    }
+    else if (Wiwa::Button::currentScene == Wiwa::SceneUi::MAIN)
+    {
+        tex = (ImTextureID)(intptr_t)Wiwa::Application::Get().GetRenderer2D().getColorBufferTexture();
     }
 
     //ImTextureID tex = (ImTextureID)(intptr_t)m_Camera->frameBuffer->getColorBufferTexture();
@@ -230,7 +237,7 @@ void ScenePanel::Draw()
 
                 
                 
-                
+              
 
                 ImGuizmo::RecomposeMatrixFromComponents(translation, rotation, scale, tmpMatrix);
                 ImGuizmo::MODE mode = isParent ? ImGuizmo::WORLD : ImGuizmo::LOCAL;
@@ -313,7 +320,7 @@ void ScenePanel::Draw()
         ImGui::GetForegroundDrawList()->AddRect(vMin, vMax, IM_COL32(255, 0, 0, 255));
 
         std::pair<float, float> of = Wiwa::Input::OverrideMousePos({ vMin.x, vMin.y });
-        WI_INFO("Offset {0} {1}", of.first, of.second);
+        //WI_INFO("Offset {0} {1}", of.first, of.second);
         Wiwa::Input::OverrideMouseinWin(true);
          
 
@@ -466,7 +473,7 @@ void ScenePanel::Draw()
         }
     }
     m_Scroll = 0.0f;
-    WI_INFO("INWINDOW {}", Wiwa::Input::IsMouseInWin());
+    //WI_INFO("INWINDOW {}", Wiwa::Input::IsMouseInWin());
     WI_INFO("INWINDOW {0} {1}", Wiwa::Input::GetMousePosition().first, Wiwa::Input::GetMousePosition().second);
     ImGui::End();
 }

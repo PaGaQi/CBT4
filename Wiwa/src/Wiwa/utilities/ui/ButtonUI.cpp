@@ -4,8 +4,12 @@
 #include <Wiwa/core/Renderer2D.h>
 #include <Wiwa/core/Application.h>
 #include <Wiwa/core/Input.h>
+//#include <Wiwa/utilities/ui/ManagerUI.h>
 
 namespace Wiwa {
+
+	SceneUi Button::currentScene = SceneUi::MAIN;
+
 	Button::Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId)
 		: m_BType(btype), m_SpriteID(spriteId), m_Bounds(bounds), ControlUi(position, bounds)
 	{
@@ -49,6 +53,8 @@ namespace Wiwa {
 		switch (m_BType) {
 		case ButtonType::PLAY:
 			std::cout << "Iso click webon \n";
+			currentScene = SceneUi::PLAYING;
+			
 			break;
 		}
 	}
