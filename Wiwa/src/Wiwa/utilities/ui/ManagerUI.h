@@ -28,9 +28,9 @@ namespace Wiwa
 
 		bool Start();
 
-		bool Update(float dt);
+		bool Update();
 
-		bool UpdateAll(float dt, bool logic);
+		bool UpdateAll();
 
 		bool Draw();
 

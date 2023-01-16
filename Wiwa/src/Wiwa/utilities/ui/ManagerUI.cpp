@@ -53,14 +53,14 @@ namespace Wiwa
 
 	}
 
-	bool ManagerUi::Update(float dt)
+	bool ManagerUi::Update()
 	{
 		bool ret = true;
 
 		return ret;
 	}
 
-	bool ManagerUi::UpdateAll(float dt, bool doLogic) 
+	bool ManagerUi::UpdateAll() 
 	{
 		bool ret = true;
 

@@ -35,6 +35,7 @@
 #include <Wiwa/scripting/ScriptEngine.h>
 #include <Wiwa/core/Resources.h>
 #include <Wiwa/audio/Audio.h>
+#include <Wiwa/utilities/ui/ManagerUI.h>
 
 USE_REFLECTION;
 
@@ -150,7 +151,8 @@ namespace Wiwa {
 			m_Renderer3D->Update();
 
 			m_Renderer2D->Update();
-
+			Wiwa::ManagerUi::Get()->Update();
+			
 			// Update time
 			Time::Update();
 
