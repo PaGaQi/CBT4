@@ -300,7 +300,7 @@ void ScenePanel::Draw()
         rel2f.x /= rel2f.x == 0.0f ? 1.0f : abs(rel2f.x);
         rel2f.y /= rel2f.y == 0.0f ? 1.0f : abs(rel2f.y);
 
-        Wiwa::Input::OverrideMousePos({cspos.x, cspos.y});
+        Wiwa::Input::OverrideMousePos({ v2f.x, v2f.y});
 
         lastPos = v2f;
         if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F) && m_EntSelected != -1)
