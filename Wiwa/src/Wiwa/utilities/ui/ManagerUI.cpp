@@ -8,6 +8,7 @@
 
 namespace Wiwa
 {
+	//std::vector<Button> m_Buttons;
 	ManagerUi* ManagerUi::instance = NULL;
 
 	ManagerUi::ManagerUi()
@@ -35,6 +36,7 @@ namespace Wiwa
 		case UiType::BUTTON:
 		{
 			control = new Button(btype, position, bounds, spriteId);
+			m_Buttons.push_back(control);
 		}
 			break;
 
@@ -56,6 +58,10 @@ namespace Wiwa
 	bool ManagerUi::Update()
 	{
 		bool ret = true;
+		for (size_t i = 0; i < m_Buttons.size(); i++) 
+		{
+			m_Buttons[i]->Update();
+		}
 
 		return ret;
 	}

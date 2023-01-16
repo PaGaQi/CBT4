@@ -12,6 +12,8 @@ namespace Wiwa
 		ManagerUi();
 
 		static ManagerUi* instance;
+
+		std::vector<Button*> m_Buttons;
 	public:
 		static ManagerUi* Get() 
 		{ 

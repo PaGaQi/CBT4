@@ -3,6 +3,7 @@
 
 #include <Wiwa/core/Renderer2D.h>
 #include <Wiwa/core/Application.h>
+#include <Wiwa/core/Input.h>
 
 namespace Wiwa {
 	Button::Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId)
@@ -18,14 +19,23 @@ namespace Wiwa {
 
 	void Button::Update()
 	{
-		// Check state
-		m_Bounds.y = (int)m_State * m_Bounds.height;
+		//std::cout << "Webo" << std::endl;
+		/*if ((rpos.x > m_Bounds.x) && (rpos.x < (m_Bounds.x + m_Bounds.width)) &&
+			(rpos.y > m_Bounds.y) && (rpos.y < (m_Bounds.y + m_Bounds.height)))
+		{*/
+			if (Wiwa::Input::IsMouseButtonPressed(0))
+			{
+				//state = UiState::PRESS;
+				OnClick();
+			}
+		//}
 	}
 
 	void Button::OnClick()
 	{
 		switch (m_BType) {
 		case ButtonType::PLAY:
+			std::cout << "Iso click webon \n";
 			break;
 		}
 	}
