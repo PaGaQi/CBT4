@@ -5,14 +5,14 @@
 namespace Wiwa
 {
 	enum class UiState;
-	class CheckUi : public ControlUi
+	class WI_API CheckUi : public ControlUi
 	{
 	public:
 
-		CheckUi(int id, Rect2i bounds, ResourceId spriteId, Vector2i position, bool initState = false);
+		CheckUi(Rect2i bounds, ResourceId spriteId, Vector2i position, bool initState = false);
 		virtual ~CheckUi();
 
-		bool Update(float dt);
+		void Update();
 
 		bool GetValue() { return checked; };
 		void SetValue(bool state) { checked = state; };
@@ -34,7 +34,8 @@ namespace Wiwa
 		uint32_t m_InstanceId;
 
 		bool canClick = true;
+		bool wasPressed = false;
 
 		void OnClick();
-};
+	};
 }

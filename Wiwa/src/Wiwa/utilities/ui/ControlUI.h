@@ -9,6 +9,7 @@ namespace Wiwa {
 
 	enum class UiType {
 		BUTTON,
+		CHECK,
 		NONE
 	};
 

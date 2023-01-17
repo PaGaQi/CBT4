@@ -22,6 +22,7 @@ namespace Wiwa
 		static ManagerUi* instance;
 
 		std::vector<ControlUi*> m_Buttons;
+		std::vector<ControlUi*> m_Check;
 
 	public:
 		SceneUi currentScene;

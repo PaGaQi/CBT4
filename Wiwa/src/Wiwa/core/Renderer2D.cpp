@@ -155,6 +155,15 @@ namespace Wiwa {
 		m_InstanceRendererList[instanceId]->UpdateInstance(id, position, pivot);
 	}
 
+	void Renderer2D::UpdateInstancedQuadTex(uint32_t instanceId, uint32_t id, const Rect2i& clip, const Size2i& size)
+	{
+		//uint32_t sprid = m_InstanceRendererList[instanceId].
+		/*Image* spr = Resources::GetResourceById<Image>(id);
+		Size2i spsize = spr->GetSize();*/
+		TextureClip tclip = CalculateTextureClip(clip, size);
+		m_InstanceRendererList[instanceId]->UpdateInstance(id, tclip);
+	}
+
 	void Renderer2D::UpdateInstancedQuad(uint32_t instanceId, uint32_t id, const Vector2i& position, const Size2i& size, const Color4f& color)
 	{
 		m_InstanceRendererList[instanceId]->UpdateInstance(id, position, size, color);

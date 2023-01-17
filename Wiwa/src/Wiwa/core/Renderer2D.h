@@ -64,6 +64,7 @@ namespace Wiwa {
 		uint32_t CreateInstancedQuadTex(uint32_t instanceId, uint32_t textureId, const Vector2i& position, const Size2i& size, const Rect2i& clip, Pivot pivot = Pivot::CENTER);
 
 		void UpdateInstancedQuadTex(uint32_t instanceId, uint32_t id, const Vector2i& position, Pivot pivot = Pivot::CENTER);
+		void UpdateInstancedQuadTex(uint32_t instanceId, uint32_t id, const Rect2i& clip, const Size2i& size);
 
 		void UpdateInstancedQuad(uint32_t instanceId, uint32_t id, const Vector2i& position, const Size2i& size, const Color4f& color);
 

@@ -30,7 +30,7 @@ namespace Wiwa {
 		mousePos.x *= m_Resolution.w;
 		mousePos.y *= m_Resolution.h;
 
-		WI_INFO("{0}, {1}", mousePos.x, mousePos.y);
+		//WI_INFO("{0}, {1}", mousePos.x, mousePos.y);
 
 		if (mousePos.x > m_Position.x && mousePos.x < m_Bounds.width + m_Position.x
 			&& mousePos.y > m_Position.y && mousePos.y < m_Position.y + m_Bounds.height)

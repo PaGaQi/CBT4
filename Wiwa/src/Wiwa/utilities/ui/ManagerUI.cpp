@@ -33,6 +33,13 @@ namespace Wiwa
 		Wiwa::Vector2i pos2 = { 0,0 };
 		Wiwa::Size2i size2 = { 1920 * 2, 1080 * 2 };
 		Wiwa::Rect2i rect2 = { 0, 0, size2.w, size2.h };
+		
+		//BACKGROUND2
+		ResourceId bgId = Wiwa::Resources::Load<Wiwa::Image>("Assets/bgOptions.jpg");
+		Wiwa::Image* bg = Wiwa::Resources::GetResourceById<Wiwa::Image>(bgId);
+		Wiwa::Vector2i pos3 = { 0,0 };
+		Wiwa::Size2i size3 = { 1920 * 2, 1080 * 2 };
+		Wiwa::Rect2i rect3 = { 0, 0, size3.w, size3.h };
 
 		//PLAY BUTTON
 		ResourceId imgId = Wiwa::Resources::Load<Wiwa::Image>("Assets/Play.png");
@@ -49,18 +56,26 @@ namespace Wiwa
 		Wiwa::Rect2i crosshairRect = { 0, 0, crosshairSize.w, crosshairSize.h };
 
 		//CHECKBOX
-		ResourceId checkId = Wiwa::Resources::Load<Wiwa::Image>("Assets/sam.jpg");
+		ResourceId checkId = Wiwa::Resources::Load<Wiwa::Image>("Assets/checkbox.png");
 		Wiwa::Image* checkImg = Wiwa::Resources::GetResourceById<Wiwa::Image>(checkId);
 		Wiwa::Vector2i checkPos = { 960, 540 };
 		Wiwa::Size2i checkSize = checkImg->GetSize();
-		Wiwa::Rect2i checkRect = { 0, 0, checkSize.w, checkSize.h };
+		checkSize.h /= 2;
+		Wiwa::Rect2i checkRect = { 0, 0, checkSize.w, checkSize.h};
+		
 		
 		r2d2.CreateInstancedQuadTex((int)SceneUi::CROSSHAIR, croshairId, crosshairPos, crosshairSize);
+
+		//r2d2.CreateInstancedQuadTex((int)SceneUi::OPTIONS, checkId, checkPos, checkSize);
 		
 		//PLAY BUTTON
 		Wiwa::ManagerUi::Get()->CreateControlUi(SceneUi::MAIN, Wiwa::UiType::BUTTON, pos, imgId, rect);
+
+		Wiwa::ManagerUi::Get()->CreateControlUi(SceneUi::OPTIONS, Wiwa::UiType::CHECK, checkPos, checkId, checkRect);
 		//BACKGROUND
 		r2d2.CreateInstancedQuadTex((int)SceneUi::MAIN, bgId2, pos2, size2);
+
+		r2d2.CreateInstancedQuadTex((int)SceneUi::OPTIONS, bgId, pos3, size3);
 
 		currentScene = SceneUi::CROSSHAIR;
 		r2d2.SetActiveInstance((int)currentScene);
@@ -77,9 +92,16 @@ namespace Wiwa
 		{
 			control = new Button(ButtonType::PLAY, position, bounds, spriteId);
 			m_Buttons.push_back(control);
+			
 		}
-			break;
-
+		break;
+		case UiType::CHECK:
+		{
+			control = new CheckUi(bounds, spriteId, position, false);
+			m_Check.push_back(control);
+			
+		}
+		break;
 		default:
 			break;
 		}
@@ -102,16 +124,25 @@ namespace Wiwa
 		{
 			m_Buttons[i]->Update();
 		}
+
+		for (size_t i = 0; i < m_Check.size(); i++)
+		{
+			m_Check[i]->Update();
+		
+		}
 		
 		if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F3))
 		{
 			ChangeScene(SceneUi::CROSSHAIR);
 		}
+		if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F1))
+		{
+			ChangeScene(SceneUi::OPTIONS);
+		}
 		else if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F2))
 		{
 			ChangeScene(SceneUi::MAIN);
 		}
-
 
 		return ret;
 	}

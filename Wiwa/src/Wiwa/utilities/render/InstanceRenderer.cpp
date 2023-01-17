@@ -169,6 +169,11 @@ namespace Wiwa {
 		m_InstanceVertex[id].position = Renderer2D::CalculateScreenGlPos(position, s, pivot);
 	}
 
+	void InstanceRenderer::UpdateInstance(uint32_t id, const TextureClip& clip)
+	{
+		m_InstanceVertex[id].textureClip = clip;
+	}
+
 	int InstanceRenderer::AddTexture(uint32_t texture)
 	{
 		size_t texSize = m_Textures.size();
