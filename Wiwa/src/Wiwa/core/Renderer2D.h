@@ -43,7 +43,9 @@ namespace Wiwa {
 		glm::mat4 m_View;
 		Camera m_ActiveCamera;
 
-		InstanceRenderer* instanceRenderer;
+		uint32_t m_InstanceId;
+
+		std::vector<InstanceRenderer*> m_InstanceRendererList;
 	public:
 		Renderer2D();
 		~Renderer2D();
@@ -57,15 +59,17 @@ namespace Wiwa {
 
 		void Close();
 
-		uint32_t CreateInstancedQuadTex(uint32_t textureId, const Vector2i& position, const Size2i& size, const Color4f& color, const Rect2i& clip, Pivot pivot = Pivot::CENTER);
-		uint32_t CreateInstancedQuadTex(uint32_t textureId, const Vector2i& position, const Size2i& size, Pivot pivot = Pivot::CENTER);
-		uint32_t CreateInstancedQuadTex(uint32_t textureId, const Vector2i& position, const Size2i& size, const Rect2i& clip, Pivot pivot = Pivot::CENTER);
+		uint32_t CreateInstancedQuadTex(uint32_t instanceId, uint32_t textureId, const Vector2i& position, const Size2i& size, const Color4f& color, const Rect2i& clip, Pivot pivot = Pivot::CENTER);
+		uint32_t CreateInstancedQuadTex(uint32_t instanceId, uint32_t textureId, const Vector2i& position, const Size2i& size, Pivot pivot = Pivot::CENTER);
+		uint32_t CreateInstancedQuadTex(uint32_t instanceId, uint32_t textureId, const Vector2i& position, const Size2i& size, const Rect2i& clip, Pivot pivot = Pivot::CENTER);
 
-		void UpdateInstancedQuadTex(uint32_t id, const Vector2i& position, Pivot pivot = Pivot::CENTER);
+		void UpdateInstancedQuadTex(uint32_t instanceId, uint32_t id, const Vector2i& position, Pivot pivot = Pivot::CENTER);
 
-		void UpdateInstancedQuad(uint32_t id, const Vector2i& position, const Size2i& size, const Color4f& color);
+		void UpdateInstancedQuad(uint32_t instanceId, uint32_t id, const Vector2i& position, const Size2i& size, const Color4f& color);
 
 		void UpdateInstanced();
+		uint32_t CreateInstance();
+		void SetActiveInstance(uint32_t instanceId);
 
 		// Getters
 		uint32_t getRenderInstancedCalls() { return m_RenderCallsInstancedCount; }

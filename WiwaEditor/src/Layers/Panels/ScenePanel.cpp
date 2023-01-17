@@ -29,7 +29,7 @@
 #include "../../Entities.h"
 
 #include <Wiwa/core/Renderer2D.h>
-#include <Wiwa/utilities/ui/ButtonUi.h>
+#include <Wiwa/utilities/ui/ManagerUi.h>
 
 #include <Wiwa/utilities/filesystem/FileSystem.h>
 
@@ -127,13 +127,13 @@ void ScenePanel::Draw()
     
     ImTextureID tex = (ImTextureID)(intptr_t)Wiwa::Application::Get().GetRenderer2D().getColorBufferTexture();
 
-    if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F4) || Wiwa::Button::currentScene == Wiwa::SceneUi::PLAYING)
+    if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F4) || Wiwa::ManagerUi::Get()->currentScene == Wiwa::SceneUi::PLAYING)
     {
         tex = (ImTextureID)(intptr_t)m_Camera->frameBuffer->getColorBufferTexture();
 
-        if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F5)) Wiwa::Button::currentScene = Wiwa::SceneUi::MAIN;
+        if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F5)) Wiwa::ManagerUi::Get()->currentScene = Wiwa::SceneUi::MAIN;
     }
-    else if (Wiwa::Button::currentScene == Wiwa::SceneUi::MAIN)
+    else if (Wiwa::ManagerUi::Get()->currentScene == Wiwa::SceneUi::MAIN)
     {
         tex = (ImTextureID)(intptr_t)Wiwa::Application::Get().GetRenderer2D().getColorBufferTexture();
     }

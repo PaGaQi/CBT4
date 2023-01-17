@@ -8,13 +8,6 @@ namespace Wiwa {
 	class Renderer2D;
 	class Pivot;
 
-	enum class SceneUi {
-		MAIN,
-		PLAYING,
-		CROSSHAIR,
-		OPTIONS,
-		NONE
-	};
 
 	enum class ButtonType {
 		PLAY,
@@ -40,10 +33,8 @@ namespace Wiwa {
 		Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId);
 		//Button(ButtonType btype, const Vector2i& position, const Rect2i& bounds, ResourceId spriteId, Pivot pivot);
 
-		void Update();
+		void Update() override;
 
 		void OnClick();
-
-		static SceneUi currentScene;
 	};
 }

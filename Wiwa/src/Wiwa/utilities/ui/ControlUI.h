@@ -34,7 +34,7 @@ namespace Wiwa {
 	public:
 		ControlUi(const Vector2i& position, const Rect2i& bounds);
 
-		void Update();
+		virtual void Update() {}
 
 		void OnClick();
 	};

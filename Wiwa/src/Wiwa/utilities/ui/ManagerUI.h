@@ -1,10 +1,18 @@
 #pragma once
 
-#include "ButtonUI.h"
+#include "ControlUI.h"
 #include <vector>
 
 namespace Wiwa
 {
+	enum class SceneUi {
+		MAIN,
+		PLAYING,
+		CROSSHAIR,
+		OPTIONS,
+		NONE
+	};
+
 	class WI_API ManagerUi
 	{
 	private:
@@ -13,8 +21,11 @@ namespace Wiwa
 
 		static ManagerUi* instance;
 
-		std::vector<Button*> m_Buttons;
+		std::vector<ControlUi*> m_Buttons;
+
 	public:
+		SceneUi currentScene;
+		
 		static ManagerUi* Get() 
 		{ 
 			if (instance == NULL)
@@ -40,13 +51,16 @@ namespace Wiwa
 		bool CleanUp();
 
 		// Additional methods
-		Button* CreateControlUi(UiType type, ButtonType btype, Vector2i position, ResourceId spriteId, Wiwa::Rect2i bounds);
-		void DestroyControlUi(Button* entity);
-		void AddControlUi(Button* entity);
+		ControlUi* CreateControlUi(SceneUi scene, UiType type, Vector2i position, ResourceId spriteId, Wiwa::Rect2i bounds);
+		void DestroyControlUi(ControlUi* entity);
+		void AddControlUi(ControlUi* entity);
+
+		//Scene Managing
+		void ChangeScene(SceneUi newScene);
 
 	public:
 
-		std::vector<Button*> controls;
+		std::vector<ControlUi*> controls;
 	};
 }
 
