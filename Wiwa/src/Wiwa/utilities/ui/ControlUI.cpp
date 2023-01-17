@@ -12,4 +12,6 @@ Wiwa::ControlUi::ControlUi(const Vector2i& position, const Rect2i& bounds)
 	m_Type = UiType::BUTTON;
 	m_Position = position;
 
+	m_Resolution = Wiwa::Application::Get().GetTargetResolution();
+
 }

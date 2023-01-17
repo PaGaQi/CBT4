@@ -6,23 +6,23 @@
 #include <Wiwa/utilities/ui/ControlUI.h>
 
 namespace Wiwa {
-	//class SceneUi
-	//{
-	//private:
+	class SceneManagerUi 
+	{
+	private:
 
-	//	//ResourceId m_SpriteID;
-	//	//Rect2i m_Bounds;
+		//ResourceId m_SpriteID;
+		//Rect2i m_Bounds;
 
-	//	//ButtonType m_BType;
+		//ButtonType m_BType;
 
-	//	//uint32_t m_InstanceId;
+		//uint32_t m_InstanceId;
 
-	//public:
-	//	SceneUi();
-	//	~SceneUi();
-	//	
-	//	void Update();
-	//	
-	//	static SceneUi currentScene;
-	//};
+	public:
+		SceneManagerUi();
+		~SceneManagerUi();
+		
+		void Update();
+		
+		//static SceneUi currentScene;
+	};
 }

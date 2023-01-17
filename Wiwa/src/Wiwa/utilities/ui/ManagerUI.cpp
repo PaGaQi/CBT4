@@ -26,11 +26,7 @@ namespace Wiwa
 
 	Button* ManagerUi::CreateControlUi(UiType type, ButtonType btype, Vector2i position, ResourceId spriteId, Wiwa::Rect2i bounds)
 	{
-		// Create a UI control and add it to the list of controls
-
 		Button* control = nullptr;
-
-		//Call the constructor according to the ControlType
 		switch (type)
 		{
 		case UiType::BUTTON:
@@ -44,7 +40,7 @@ namespace Wiwa
 			break;
 		}
 
-		// Created GuiControls are added to the list of controls
+		// Created UIControls are added to the list of controls
 		if (control != nullptr) controls.push_back(control);
 
 		return control;

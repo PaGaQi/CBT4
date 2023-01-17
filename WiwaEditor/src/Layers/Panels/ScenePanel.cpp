@@ -311,19 +311,21 @@ void ScenePanel::Draw()
         rel2f.y /= rel2f.y == 0.0f ? 1.0f : abs(rel2f.y);
 
        
-        ImVec2 vMin = ImGui::GetWindowContentRegionMin();             
-        ImVec2 vMax = ImGui::GetWindowContentRegionMax();             
-        vMin.x += ImGui::GetWindowPos().x;             
-        vMin.y += ImGui::GetWindowPos().y;             
-        vMax.x += ImGui::GetWindowPos().x;             
-        vMax.y += ImGui::GetWindowPos().y;             
-        ImGui::GetForegroundDrawList()->AddRect(vMin, vMax, IM_COL32(255, 0, 0, 255));
+        //ImVec2 vMin = ImGui::GetWindowContentRegionMin();             
+        //ImVec2 vMax = ImGui::GetWindowContentRegionMax();             
+        //vMin.x += ImGui::GetWindowPos().x;             
+        //vMin.y += ImGui::GetWindowPos().y;             
+        //vMax.x += ImGui::GetWindowPos().x;             
+        //vMax.y += ImGui::GetWindowPos().y;             
+        //ImGui::GetForegroundDrawList()->AddRect(vMin, vMax, IM_COL32(255, 0, 0, 255));
 
-        std::pair<float, float> of = Wiwa::Input::OverrideMousePos({ vMin.x, vMin.y });
+        //std::pair<float, float> of = Wiwa::Input::OverrideMousePos({ v2f.x, v2f.y });
         //WI_INFO("Offset {0} {1}", of.first, of.second);
+
+        Wiwa::Input::OverrideMousePos({ v2f.x, v2f.y });
         Wiwa::Input::OverrideMouseinWin(true);
          
-
+        
         lastPos = v2f;
         if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F) && m_EntSelected != -1)
         {
@@ -474,7 +476,7 @@ void ScenePanel::Draw()
     }
     m_Scroll = 0.0f;
     //WI_INFO("INWINDOW {}", Wiwa::Input::IsMouseInWin());
-    WI_INFO("INWINDOW {0} {1}", Wiwa::Input::GetMousePosition().first, Wiwa::Input::GetMousePosition().second);
+    //WI_INFO("INWINDOW {0} {1}", Wiwa::Input::GetMousePosition().first, Wiwa::Input::GetMousePosition().second);
     ImGui::End();
 }
 

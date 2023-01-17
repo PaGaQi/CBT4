@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Wiwa/core/Core.h>
+#include <Wiwa/utilities/math/Vector2f.h>
 
 namespace Wiwa
 {
@@ -12,10 +13,12 @@ namespace Wiwa
 		inline static std::pair<float, float> GetMousePosition() { return s_Instance->GetMousePositionImpl(); }
 		inline static float GetMouseX() { return s_Instance->GetMouseXImpl(); }
 		inline static float GetMouseY() { return s_Instance->GetMouseYImpl(); }
-		inline static std::pair<float, float> OverrideMousePos(std::pair<float, float> offset) { return s_Instance->OverrideMousePosImpl(offset); }
+		inline static void OverrideMousePos(const Vector2f& position) { m_Position = position; }
 
-		inline static void OverrideMouseinWin(bool inWin) { s_Instance->OverrideMouseInWinImpl(inWin); }
-		inline static bool IsMouseInWin() { return s_Instance->IsMouseInWinImpl(); }
+		inline static Vector2f GetOverrideMousePos() { return m_Position; }
+
+		inline static void OverrideMouseinWin(bool inWin) { s_InWin = inWin; }
+		inline static bool IsMouseInWin() { return s_InWin; }
 
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) = 0;
@@ -28,8 +31,9 @@ namespace Wiwa
 		virtual void OverrideMouseInWinImpl(bool inWin) = 0;
 		virtual bool IsMouseInWinImpl() = 0;
 
-		static std::pair<float, float> offset;
+		static Vector2f m_Position;
 		static bool s_InWin;
+		static std::pair<float, float> offset;
 	private:
 		static Input* s_Instance;
 	};

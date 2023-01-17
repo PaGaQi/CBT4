@@ -26,8 +26,16 @@ namespace Wiwa {
 		//std::cout << Input::GetMousePosition().second << "\n";
 		//std::cout << "Webo" << std::endl;
 		//std::cout << m_Bounds.y - m_Bounds.height << std::endl;
-		if (Input::GetMousePosition().first > m_Bounds.x && Input::GetMousePosition().first < m_Bounds.width
-			&& Input::GetMousePosition().second > m_Bounds.y- m_Bounds.height && Input::GetMousePosition().second < m_Bounds.height)
+		
+		//std::cout << Input::GetMousePosition().first << "\n";
+		Vector2f mousePos = Input::GetOverrideMousePos();
+		mousePos.x *= m_Resolution.w;
+		mousePos.y *= m_Resolution.h;
+
+		WI_INFO("{0}, {1}", mousePos.x, mousePos.y);
+
+		if (mousePos.x > m_Position.x && mousePos.x < m_Bounds.width + m_Position.x
+			&& mousePos.y > m_Position.y && mousePos.y < m_Position.y + m_Bounds.height)
 		{
 			if (Wiwa::Input::IsMouseButtonPressed(0) && currentScene == SceneUi::MAIN)
 				{

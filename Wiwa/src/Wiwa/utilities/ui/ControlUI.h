@@ -29,6 +29,8 @@ namespace Wiwa {
 
 		UiState m_State;
 
+		Size2i m_Resolution;
+
 	public:
 		ControlUi(const Vector2i& position, const Rect2i& bounds);
 

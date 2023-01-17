@@ -7,10 +7,18 @@
 #include <Wiwa/core/Input.h>
 
 namespace Wiwa {
-	/*SceneUi::SceneUi()	{};
+	SceneManagerUi::SceneManagerUi()
+	{
+	};
 
-	SceneUi::~SceneUi() {};
+	SceneManagerUi::~SceneManagerUi() 
+	{
+	};
 
-	void SceneUi::Update() {};*/
+	void SceneManagerUi::Update() 
+	{
+
+
+	};
 
 }
