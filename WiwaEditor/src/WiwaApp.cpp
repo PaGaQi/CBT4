@@ -34,9 +34,9 @@ public:
 		//PLAY BUTTON
 		ResourceId imgId = Wiwa::Resources::Load<Wiwa::Image>("Assets/Play.png");
 		Wiwa::Image* img = Wiwa::Resources::GetResourceById<Wiwa::Image>(imgId);
-		Wiwa::Vector2i pos = { 960, 540};
+		Wiwa::Vector2i pos = { 495, 540};
 		Wiwa::Size2i size = img->GetSize();
-		Wiwa::Rect2i rect = {0, 0, size.w, size.h};
+		Wiwa::Rect2i rect = { 0, 0, size.w, size.h };
 
 		//CROSSHAIR
 		ResourceId croshairId = Wiwa::Resources::Load<Wiwa::Image>("Assets/sexo.png");
