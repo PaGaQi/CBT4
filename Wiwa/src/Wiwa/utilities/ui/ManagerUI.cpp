@@ -42,12 +42,18 @@ namespace Wiwa
 		Wiwa::Rect2i rect = { 0, 0, size.w, size.h };
 
 		//CROSSHAIR
-		ResourceId croshairId = Wiwa::Resources::Load<Wiwa::Image>("Assets/sexo.png");
-		Wiwa::Image* crosshairImg = Wiwa::Resources::GetResourceById<Wiwa::Image>(imgId);
+		ResourceId croshairId = Wiwa::Resources::Load<Wiwa::Image>("Assets/Mark.png");
+		Wiwa::Image* crosshairImg = Wiwa::Resources::GetResourceById<Wiwa::Image>(croshairId);
 		Wiwa::Vector2i crosshairPos = { 960, 540 };
-		Wiwa::Size2i crosshairSize = img->GetSize();
-		Wiwa::Rect2i crosshairRect = { 0, 0, size.w, size.h };
+		Wiwa::Size2i crosshairSize = crosshairImg->GetSize();
+		Wiwa::Rect2i crosshairRect = { 0, 0, crosshairSize.w, crosshairSize.h };
 
+		//CHECKBOX
+		ResourceId checkId = Wiwa::Resources::Load<Wiwa::Image>("Assets/sam.jpg");
+		Wiwa::Image* checkImg = Wiwa::Resources::GetResourceById<Wiwa::Image>(checkId);
+		Wiwa::Vector2i checkPos = { 960, 540 };
+		Wiwa::Size2i checkSize = checkImg->GetSize();
+		Wiwa::Rect2i checkRect = { 0, 0, checkSize.w, checkSize.h };
 		
 		r2d2.CreateInstancedQuadTex((int)SceneUi::CROSSHAIR, croshairId, crosshairPos, crosshairSize);
 		
@@ -97,7 +103,7 @@ namespace Wiwa
 			m_Buttons[i]->Update();
 		}
 		
-		if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F1))
+		if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F3))
 		{
 			ChangeScene(SceneUi::CROSSHAIR);
 		}

@@ -6,12 +6,13 @@
 #include <Wiwa/core/Application.h>
 #include <Wiwa/core/Window.h>
 #include <Wiwa/utilities/ui/ButtonUI.h>
+#include <Wiwa/utilities/ui/ManagerUI.h>
 
 namespace Wiwa
 {
-	CheckUi::CheckUi(int id, Rect2i bounds, ResourceId spriteId, bool initState)
+	CheckUi::CheckUi(int id, Rect2i bounds, ResourceId spriteId, Vector2i position, bool initState) : ControlUi(position, bounds)
 	{
-		boundsCheck = bounds;
+		m_Bounds = bounds;
 		//spriteIdCheck = spriteId;
 
 		canClick = true;
@@ -28,13 +29,30 @@ namespace Wiwa
 	bool CheckUi::Update(float dt)
 	{
 		bool ret = true;
-		
-		if (state != UiState::DISABLED)
-		{			
-			
 
+		Vector2f mousePos = Input::GetOverrideMousePos();
+		mousePos.x *= m_Resolution.w;
+		mousePos.y *= m_Resolution.h;
+
+		WI_INFO("{0}, {1}", mousePos.x, mousePos.y);
+
+		if (mousePos.x > m_Position.x && mousePos.x < m_Bounds.width + m_Position.x
+			&& mousePos.y > m_Position.y && mousePos.y < m_Position.y + m_Bounds.height)
+		{
+			if (Wiwa::Input::IsMouseButtonPressed(0) && ManagerUi::Get()->currentScene == SceneUi::MAIN)
+			{
+				//state = UiState::PRESS;
+				OnClick();
+			}
 		}
+		
 
 		return ret;
+	}
+
+	void CheckUi::OnClick()
+	{
+		checked != checked;
+		Wiwa::Application::Get().GetWindow().SetVSync(checked);
 	}
 }

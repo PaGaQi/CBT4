@@ -1,3 +1,18 @@
+# CBT4
+
+Now implementing UI, CBT4 tries to simulate a UI like other engines, having different buttons and scenes to go. This is a fork of Wiwa engine (more information below).
+
+## UI controls
+
+- F1 See crosshair
+- F4 See scene without clicking buttons
+- F2 Return to main menu
+
+## Mishaps
+
+
+
+# Pre-fork info
 
 # <img style="vertical-align:middle" src="Editor/resources/icons/wiwa_icon.png" width="30"> Wiwa Engine
 

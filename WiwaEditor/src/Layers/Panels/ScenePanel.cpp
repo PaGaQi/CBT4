@@ -130,8 +130,6 @@ void ScenePanel::Draw()
     if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F4) || Wiwa::ManagerUi::Get()->currentScene == Wiwa::SceneUi::PLAYING)
     {
         tex = (ImTextureID)(intptr_t)m_Camera->frameBuffer->getColorBufferTexture();
-
-        if (Wiwa::Input::IsKeyPressed(Wiwa::Key::F5)) Wiwa::ManagerUi::Get()->currentScene = Wiwa::SceneUi::MAIN;
     }
     else if (Wiwa::ManagerUi::Get()->currentScene == Wiwa::SceneUi::MAIN)
     {
