@@ -77,7 +77,7 @@ namespace Wiwa
 
 		r2d2.CreateInstancedQuadTex((int)SceneUi::OPTIONS, bgId, pos3, size3);
 
-		currentScene = SceneUi::CROSSHAIR;
+		currentScene = SceneUi::MAIN;
 		r2d2.SetActiveInstance((int)currentScene);
 		
 		return true;
