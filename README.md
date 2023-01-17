@@ -2,17 +2,30 @@
 
 Now implementing UI, CBT4 tries to simulate a UI like other engines, having different buttons and scenes to go. This is a fork of Wiwa engine (more information below).
 
-## UI controls
+## UI Controls
 
-- F1 See crosshair
-- F4 See scene without clicking buttons
-- F2 Return to main menu
+- F1 Go to Options page
+- F2 Return to Main Menu
+- F3 See Crosshair page
+- F4 (Hold Down) See the town scene
 
 ## Mishaps
+### Mishap 1:
+At first, we forked Wiwa Engine a few days before starting work in this new fork, but all
+of that work got corrupted for some reason. In previous commits of our original fork, the
+2D Renderer work completely fine, but for some reason at some given point that stopped working,
+and every time we created a button, a check or an image it didn't show up on screen when it
+previously did. We tried to revert commits and to download previous versions from the GitHub page, 
+but everything seemed to be broken. The only way we managed to fix this error was by forking the
+project again, which resulted in this current version.
 
+### Mishap 2:
+This isn't really a mishap as it is a limitation of the engine in its current state. The 2D Renderer
+and the 3D Renderer can't both work at the same time, so we decided to showcase the crosshair
+scene as separate from the town scene. In the future, the engine will allow for simultaneous
+2D and 3D rendering.
 
-
-# Pre-fork info
+# Pre-Fork Info
 
 # <img style="vertical-align:middle" src="Editor/resources/icons/wiwa_icon.png" width="30"> Wiwa Engine
 
